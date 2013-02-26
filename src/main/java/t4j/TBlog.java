@@ -382,6 +382,18 @@ public class TBlog extends TBlogSupport {
         return new Status(http.post(getBaseURL() + "statuses/video.json", params, true));
     }
 
+
+    /**
+     * 显示用户详情
+     *
+     * @return
+     * @throws TBlogException
+     */
+    public User showUser() throws TBlogException {
+        return new User(http.get(getBaseURL() + "users/show.json", true));
+
+    }
+
     /**
      * 显示用户详情
      *

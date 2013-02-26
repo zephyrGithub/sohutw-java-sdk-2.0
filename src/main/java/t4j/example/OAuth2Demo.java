@@ -22,8 +22,8 @@ public class OAuth2Demo {
 
     public static void main(String[] args) throws TBlogException, IOException, JSONException {
         TBlog tblog = new TBlog(OAuthVersion.V2);
-        tblog.setOAuth2AccessToken("a86fdcefb2178b838123e5768ee14ffd");
-        getHomeTimeline(tblog);
+        tblog.setOAuth2AccessToken("c45495c5d344d23ab9723f9bf32a37e");
+        showUser(tblog);
     }
 
     /**
@@ -268,8 +268,10 @@ public class OAuth2Demo {
      * @return
      */
     public static void showUser(TBlog tblog) throws TBlogException, IOException {
-        User showUser = tblog.showUser(67427379L);
+        User showUser = tblog.showUser();
         System.out.println(showUser.getDescription());
+        User showUser1 = tblog.showUser(67427379L);
+        System.out.println(showUser1.getDescription());
         User showUser2 = tblog.showUser(URLEncoder.encode("向上de少年", "utf-8"));
         System.out.println(showUser2.getDescription());
     }
