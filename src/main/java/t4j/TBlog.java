@@ -213,6 +213,18 @@ public class TBlog extends TBlogSupport {
 
 
     /**
+     * 查看指定微博的所有评论
+     *
+     * @param id 微博id
+     * @return
+     * @throws TBlogException
+     */
+    public List<Status> getComments(long id, int page) throws TBlogException {
+        return Status.constructStatuses(get(getBaseURL() + "statuses/comments/" + String.valueOf(id) + ".json?" + "page=" + page, true));
+    }
+
+
+    /**
      * 查看别人对我的评论
      *
      * @return

@@ -23,7 +23,7 @@ public class OAuth2Demo {
     public static void main(String[] args) throws TBlogException, IOException, JSONException {
         TBlog tblog = new TBlog(OAuthVersion.V2);
         tblog.setOAuth2AccessToken("c45495c5d344d23ab9723f9bf32a37e");
-        showUser(tblog);
+        getCommentsByPage(tblog);
     }
 
     /**
@@ -115,6 +115,21 @@ public class OAuth2Demo {
             System.out.println(status.getText());
         }
     }
+
+    /**
+     * 分页查看指定微博的所有评论,每页10条
+     *
+     * @return
+     * @throws TBlogException
+     */
+    public static void getCommentsByPage(TBlog tblog) throws TBlogException, IOException {
+        int page = 2;
+        List<Status> statusList = tblog.getComments(7300161726L, page);
+        for (Status status : statusList) {
+            System.out.println(status.getText());
+        }
+    }
+
 
     /**
      * 查看别人对我的评论
