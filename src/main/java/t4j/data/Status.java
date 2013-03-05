@@ -74,7 +74,9 @@ public class Status extends TBlogResponse {
     private void init(JSONObject json) throws TBlogException {
 
         try {
-            this.created_at = json.getString(created_at);
+            this.transmit = json.getInt("transmit");
+            this.comment  = json.getInt("comment");
+            this.created_at = json.getString("created_at");
             this.id = json.getString("id");
             this.text = json.getString("text");
             this.source = json.getString("source");
